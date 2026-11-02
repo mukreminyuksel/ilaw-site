@@ -40,7 +40,7 @@
   </header>
 
   <h1>Gizlilik Politikası</h1>
-  <p class="meta">Ön sürüm · Yayın tarihi: 2 Kasım 2026 · Uygulama sürümü v0.12.1</p>
+  <p class="meta">Ön sürüm · Yayın tarihi: 2 Kasım 2026 · v0.13 güncellemesi: uygulama güncellemeleri ve hata raporları · Uygulama sürümü v0.13</p>
   <p class="note">Bu metin, iLaw Hukuk uygulamasının hangi verileri, neden ve nasıl işlediğini sade bir dille anlatır.
     <strong>Ön sürümdür; uygulama mağazalarda yayımlanmadan önce hukukçu incelemesinden geçecektir.</strong>
     Uygulamanın kuralları <a href="kosullar.html">Kullanım Koşulları</a> sayfasındadır.</p>
@@ -97,6 +97,18 @@
       <li>Teknik kayıtlar: telefonundaki oturum anahtarları ve altyapı sağlayıcısının standart erişim kayıtları
         (ör. IP adresi).</li>
     </ul>
+    <h3>Hesap açmasan da (uygulama güncellemeleri ve hata raporları)</h3>
+    <ul>
+      <li>Uygulama güncellemeleri: uygulama yeni bir güncelleme olup olmadığını her açılışta ve öne geldiğinde sunucumuza
+        sorar (iki soru arasında en az 2 dakika). Bu sırada uygulamanın sürümü ve kullandığı güncelleme, telefonun türü (Android) ve kademeli yayın için
+        uygulamanın kendi seçtiği 0–99 arası bir sayı gider; hesabınla bağlantılı değildir. Güncellemenin dosyaları ve
+        sürüm ayarı dosyası sitemizden (GitHub Pages) iner; bu sırada GitHub, her web isteğinde olduğu gibi IP adresini
+        görür.</li>
+      <li>Hata raporları: uygulama bir hata yaşarsa ne olduğu bize iletilir: hata iletisi (içindeki e-posta adresi ve uzun
+        sayılar silinerek), hangi ekranda olduğu, uygulama ve Android sürümü, kullanılan güncelleme. Hesabın, takma adın ve
+        yazdıkların gönderilmez. Kötüye kullanımı sınırlamak için uygulamanın kendi ürettiği rastgele bir kurulum numarası
+        da gider; hesabınla bağlanmaz. Ayarlar › Uygulama'dan kapatabilirsin.</li>
+    </ul>
   </div>
 
   <h2>Neden işliyoruz</h2>
@@ -128,7 +140,8 @@
       bakış kayda geçer.</li>
     <li><strong>Moderatörler:</strong> şikâyetleri incelemek için profil ve oyun bilgilerini görebilir; e-posta adresini
       ve mesaj metinlerini göremez.</li>
-    <li><strong>Hizmet sağlayıcılar:</strong> sunucumuz (Supabase) ve Google (giriş ve telefon bildirimi). Telefon
+    <li><strong>Hizmet sağlayıcılar:</strong> sunucumuz (Supabase), Google (giriş ve telefon bildirimi) ve GitHub (site, sürüm
+      ayarı ve uygulama güncellemelerinin dosyaları; kişisel veri tutulmaz, yalnız istek sırasında IP adresini görür). Telefon
       bildiriminin başlığı ve kısa metni Google'ın bildirim hizmetinden (Firebase Cloud Messaging) geçer; mesaj
       bildirimlerinde mesajın metni yer almaz.</li>
     <li>Yasal zorunluluk hâlinde yetkili makamlar.</li>
@@ -136,7 +149,8 @@
 
   <h2>Nerede saklanıyor</h2>
   <p>Sunucu: Supabase'in Frankfurt (Almanya, Avrupa Birliği) veri merkezi. Google ile giriş ve telefon bildirimi Google'ın
-    hizmetleridir. Hesap açmadan yaptığın her şey yalnız telefonunda kalır.</p>
+    hizmetleridir. Site ve uygulama güncellemelerinin dosyaları GitHub'dadır (ABD). Hesap açmadan yaptığın her şey yalnız
+    telefonunda kalır; yalnız yukarıdaki güncelleme sorusu ve (açıksa) hata raporları sunucumuza gelir.</p>
 
   <h2>Ne kadar süre</h2>
   <ul>
@@ -144,6 +158,7 @@
     <li>Mesajlar: 12 ay. Bildirimler: okunduktan 14 gün sonra, okunmasa da 30 gün sonra. Telefonun bildirim adresi:
       60 gün kullanılmazsa (çıkış yapınca hemen).</li>
     <li>Reddedilen takip istekleri 7 gün, oda davetleri 2 gün, akıştaki anlar ve tepkileri 180 gün.</li>
+    <li>Hata raporları 90 gün; kurulum numarasıyla tutulan günlük sayaç 7 gün.</li>
     <li>Kurucunun yazışma açma kayıtları (kim, ne zaman, hangi gerekçeyle) 12 ay.</li>
     <li>Şikâyetler ve yazışma kopyaları şikâyet kaydıyla birlikte saklanır; şikâyet eden hesabını silerse silinir.</li>
     <li>Kayıt sırasında yarıda bırakılan, profili olmayan geçici hesaplar 7 gün sonra silinir.</li>
