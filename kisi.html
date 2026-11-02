@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meslektaş bağlantısı · iLaw Hukuk</title>
+<meta name="description" content="iLaw Hukuk’ta meslektaş olmak için uygulamada aç.">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0E1117; --card: #161A22; --line: #2A303C; --ink: #F2EDE3; --soft: #D8D2C6; --muted: #A7A196; --brass: #C9A46A; --brass-light: #E2C48F; --warm: #1A1712; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--soft); font: 16px/1.65 Inter, system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  a { color: var(--brass-light); }
+  header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  header img { width: 52px; height: 52px; border-radius: 12px; }
+  header a { text-decoration: none; color: inherit; }
+  .brand { font: 700 26px/1 'Cormorant Garamond', serif; color: var(--brass); }
+  .brand small { display: block; font: 600 11px/1.6 Inter, sans-serif; letter-spacing: 2.4px; color: var(--muted); }
+  h1 { font: 700 40px/1.15 'Cormorant Garamond', serif; color: var(--ink); margin: 0 0 8px; }
+  h2 { font: 700 26px/1.25 'Cormorant Garamond', serif; color: var(--ink); margin: 32px 0 10px; }
+  .note { background: var(--warm); border: 1px solid #5C4A2E; border-radius: 14px; padding: 14px 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 8px 18px 12px; margin-top: 12px; }
+  ol, ul { padding-left: 20px; } li { margin: 6px 0; }
+  strong { color: var(--ink); font-weight: 600; }
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  .code { font: 700 46px/1.1 'Cormorant Garamond', serif; letter-spacing: 6px; color: var(--brass-light); margin: 8px 0 4px; }
+  .btn { display: inline-block; background: var(--brass); color: #12141C; font-weight: 600; border-radius: 12px; padding: 12px 18px; text-decoration: none; border: 0; font-size: 16px; cursor: pointer; margin: 6px 8px 6px 0; }
+  .btn.ghost { background: transparent; color: var(--brass-light); border: 1px solid #5C4A2E; }
+</style>
+<meta property="og:title" content="Meslektaş bağlantısı · iLaw Hukuk">
+<meta property="og:description" content="iLaw Hukuk’ta meslektaş olmak için uygulamada aç.">
+<meta property="og:image" content="https://mukreminyuksel.github.io/ilaw-site/icon.png">
+</head>
+<body>
+<main>
+  <header>
+    <a href="./"><img src="icon.png" alt="iLaw Hukuk simgesi"></a>
+    <a href="./" class="brand">iLaw<small>HUKUK</small></a>
+  </header>
+  <h1>Meslektaş ol</h1>
+  <p>Bu bağlantı birkaç dakika geçerlidir. iLaw Hukuk’u açınca ikiniz meslektaş olursunuz.</p>
+  <p><button class="btn" id="open">Uygulamada aç</button></p>
+  <p class="note">Uygulama yoksa önce <a href="indir.html">indir</a>. Kodun süresi dolduysa arkadaşından QR’ını yenilemesini iste; uygulamada <strong>Meslektaşlar › QR okut</strong> ile de okutabilirsin.</p>
+  <footer><a href="./">Ana sayfa</a> · <a href="gizlilik.html">Gizlilik</a> · <a href="indir.html">İndir</a></footer>
+</main>
+<script>
+// Kod adresten okunur ve yalnız bu sayfada gösterilir; sunucuya gönderilmez (sayfa durağandır).
+const pkg = 'com.mukreminyuksel.ilaw';
+const fallback = encodeURIComponent(new URL('indir.html', location.href).href);
+const isAndroid = /Android/i.test(navigator.userAgent);
+function openApp(path) {
+  location.href = isAndroid ? 'intent://' + path + '#Intent;scheme=ilaw;package=' + pkg + ';S.browser_fallback_url=' + fallback + ';end' : 'ilaw://' + path;
+}
+const t = (new URLSearchParams(location.search).get('t') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 16);
+document.getElementById('open').onclick = () => { if (t) openApp('kisi/' + t); };
+</script>
+</body>
+</html>
